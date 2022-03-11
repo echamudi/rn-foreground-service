@@ -240,12 +240,19 @@ class NotificationHelper {
                     importance = NotificationManager.IMPORTANCE_HIGH;
             }
         }
-        Log.d("Check ", ""+bundle.getBoolean("vibration"));
+        Log.d("Check ", "vibration " + bundle.getBoolean("vibration"));
+        Log.d("Check ", "showBadge " + bundle.getBoolean("showBadge"));
+        Log.d("Check ", "sound" + bundle.getBoolean("sound"));
         NotificationChannel channel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, this.config.getChannelName(), importance);
         channel.setDescription(this.config.getChannelDescription());
-        channel.enableLights(true);
+        channel.enableLights(false);
         channel.enableVibration(bundle.getBoolean("vibration"));
-        channel.setShowBadge(true);
+        channel.setShowBadge(bundle.getBoolean("showBadge"));
+
+        if (!bundle.getBoolean("sound")) {
+            channel.setSound(null, null);
+        }
+
 
         manager.createNotificationChannel(channel);
         channelCreated = true;
