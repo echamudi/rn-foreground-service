@@ -180,4 +180,8 @@ ReactNativeForegroundService.start({
 
 ## License
 
+MIT © [echamudi](https://github.com/echamudi)
+
+Forked from rajaosama's work
+
 MIT © [rajaosama](https://github.com/raja0sama)
